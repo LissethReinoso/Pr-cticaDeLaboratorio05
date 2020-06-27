@@ -21,6 +21,23 @@ public class Cliente {
     private String telefono;
     private List<Vehiculo> listaDeVehiculos;
 
+    public Cliente(String cedula, String nombre, String direccion, String telefono) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Cliente(String cedula, String nombre, String direccion, String telefono, List<Vehiculo> listaDeVehiculos) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.listaDeVehiculos = listaDeVehiculos;
+    }
+    
+    
+
     public String getCedula() {
         return cedula;
     }
@@ -60,6 +77,14 @@ public class Cliente {
     //agregar el vehículo
     public void agregarVehiculo(Vehiculo vehiculo){
         listaDeVehiculos.add(vehiculo);
+    }
+    
+    //eliminar el vehículo
+    
+    public void eliminarVehículo(Vehiculo vehiculo){
+       if(listaDeVehiculos.contains(vehiculo)) {
+           listaDeVehiculos.remove(vehiculo);
+       }
     }
 
     @Override

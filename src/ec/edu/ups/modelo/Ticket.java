@@ -14,11 +14,18 @@ import java.util.Date;
 public class Ticket {
     
     
-      private int numero;
+    private int numero;
     private Date ingreso;
     private Date salida;
     private double total;
 
+    public Ticket(int numero, Date ingreso) {
+        this.numero = numero;
+        this.ingreso = ingreso;
+    }
+
+ 
+    
     public int getNumero() {
         return numero;
     }
