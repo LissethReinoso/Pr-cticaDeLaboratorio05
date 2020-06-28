@@ -14,6 +14,10 @@ public class VentanaVehiculo extends javax.swing.JFrame {
     /**
      * Creates new form VentanaVehiculo
      */
+    
+    //ventana
+    
+    private VentanaTicket t;
     public VentanaVehiculo() {
         initComponents();
     }
@@ -27,7 +31,7 @@ public class VentanaVehiculo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlVehiculo = new javax.swing.JPanel();
         lbPLaca = new javax.swing.JLabel();
         lbMarca = new javax.swing.JLabel();
         lbModelo = new javax.swing.JLabel();
@@ -36,9 +40,9 @@ public class VentanaVehiculo extends javax.swing.JFrame {
         txtModelo = new javax.swing.JTextField();
         btnIngresarTicket = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "VEHICULO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
+        pnlVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "VEHICULO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
 
         lbPLaca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbPLaca.setText("Placa:");
@@ -51,41 +55,46 @@ public class VentanaVehiculo extends javax.swing.JFrame {
 
         btnIngresarTicket.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnIngresarTicket.setText("IngresarTicket");
+        btnIngresarTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarTicketActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlVehiculoLayout = new javax.swing.GroupLayout(pnlVehiculo);
+        pnlVehiculo.setLayout(pnlVehiculoLayout);
+        pnlVehiculoLayout.setHorizontalGroup(
+            pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVehiculoLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbModelo)
                     .addComponent(lbMarca)
                     .addComponent(lbPLaca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txtMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(txtPLaca)
                     .addComponent(txtModelo))
                 .addGap(76, 76, 76))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pnlVehiculoLayout.createSequentialGroup()
                 .addGap(130, 130, 130)
                 .addComponent(btnIngresarTicket)
                 .addContainerGap(170, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlVehiculoLayout.setVerticalGroup(
+            pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVehiculoLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbPLaca)
                     .addComponent(txtPLaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMarca)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbModelo)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
@@ -99,19 +108,31 @@ public class VentanaVehiculo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIngresarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarTicketActionPerformed
+        // TODO add your handling code here:
+        
+        if(t==null){
+            t=new VentanaTicket();
+        }
+        t.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_btnIngresarTicketActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,10 +171,10 @@ public class VentanaVehiculo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresarTicket;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbMarca;
     private javax.swing.JLabel lbModelo;
     private javax.swing.JLabel lbPLaca;
+    private javax.swing.JPanel pnlVehiculo;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPLaca;

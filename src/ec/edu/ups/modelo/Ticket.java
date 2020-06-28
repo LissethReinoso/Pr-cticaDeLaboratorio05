@@ -83,7 +83,15 @@ public class Ticket {
         return true;
     }
     
-    
+    public double obtenerTotal() {
+        while (salida.getMinutes() != 0) {
+            if(salida.getMinutes() - ingreso.getMinutes() > 9){
+                total += 0.25;
+                salida.setMinutes(salida.getMinutes()-10);
+            }
+        }
+        return total;
+    }
 
     @Override
     public String toString() {
