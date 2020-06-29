@@ -8,6 +8,7 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.*;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.modelo.*;
+import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,6 +29,9 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
     //ventana 
     private VentanaVehiculo v;
 
+    //Internacionalizacion
+     private Locale localizacion;
+    
     public VentanaCliente() {
         initComponents();
         v = new VentanaVehiculo();
@@ -244,19 +248,28 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
         String telefono = txtTelefono.getText();
-
+        
         if ("".equals(cedula) && "".equals(nombre) && "".equals(direccion) && "".equals(telefono)) {
+            if (localizacion.getLanguage().equals("es")) {
             JOptionPane.showMessageDialog(this, "Llene todas las casillas");
+        } else {
+            JOptionPane.showMessageDialog(this, "Fill all the boxes");
+        }
         } else if ("".equals(cedula) || "".equals(nombre) || "".equals(direccion) || "".equals(telefono)) {
-            JOptionPane.showMessageDialog(this, "Llene  todas las casillas");
+            if (localizacion.getLanguage().equals("es")) {
+            JOptionPane.showMessageDialog(this, "Llene todas las casillas");
+        } else {
+            JOptionPane.showMessageDialog(this, "Fill all the boxes");
+        }
+           
         } else {
             Cliente c = new Cliente(cedula, nombre, direccion, telefono);
             cCliente.registrar(c);
 
             txtCedula.setText("");
-            txtNombre.setText(" ");
-            txtDireccion.setText(" ");
-            txtTelefono.setText(" ");
+            txtNombre.setText("");
+            txtDireccion.setText("");
+            txtTelefono.setText("");
 
             if (v == null) {
                 v = new VentanaVehiculo();
@@ -270,7 +283,7 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
           this.setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
-
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;

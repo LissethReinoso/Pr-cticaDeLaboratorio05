@@ -8,6 +8,9 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ControladorTicket;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.modelo.Ticket;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,12 +22,97 @@ public class VentanaTicket extends javax.swing.JFrame {
      * Creates new form VentanaTicket
      */
     
+    
+    //ventana 
+    private VentanaTicket t;
     private ControladorTicket cTicket;
     public VentanaTicket() {
         initComponents();
         cTicket=new ControladorTicket(this,new VehiculoDAO());
     }
 
+    public VentanaTicket getT() {
+        return t;
+    }
+    
+     public void setT(VentanaTicket t) {
+        this.t = t;
+    }
+
+    public JLabel getLbIngreso() {
+        return lbIngreso;
+    }
+
+    public void setLbIngreso(JLabel lbIngreso) {
+        this.lbIngreso = lbIngreso;
+    }
+
+    public JLabel getLbSalida() {
+        return lbSalida;
+    }
+
+    public void setLbSalida(JLabel lbSalida) {
+        this.lbSalida = lbSalida;
+    }
+
+    public JLabel getLbValor() {
+        return lbValor;
+    }
+
+    public void setLbValor(JLabel lbValor) {
+        this.lbValor = lbValor;
+    }
+
+    public JLabel getLbNumero() {
+        return lbNumero;
+    }
+
+    public void setLbNumero(JLabel lbNumero) {
+        this.lbNumero = lbNumero;
+    }
+
+    public JPanel getPnlTicket() {
+        return pnlTicket;
+    }
+
+    public void setPnlTicket(JPanel pnlTicket) {
+        this.pnlTicket = pnlTicket;
+    }
+
+    public JTextField getTxtIngreso() {
+        return txtIngreso;
+    }
+
+    public void setTxtIngreso(JTextField txtIngreso) {
+        this.txtIngreso = txtIngreso;
+    }
+
+    public JTextField getTxtNumero() {
+        return txtNumero;
+    }
+
+    public void setTxtNumero(JTextField txtNumero) {
+        this.txtNumero = txtNumero;
+    }
+
+    public JTextField getTxtSalida() {
+        return txtSalida;
+    }
+
+    public void setTxtSalida(JTextField txtSalida) {
+        this.txtSalida = txtSalida;
+    }
+
+    public JTextField getTxtValor() {
+        return txtValor;
+    }
+
+    public void setTxtValor(JTextField txtValor) {
+        this.txtValor = txtValor;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +123,7 @@ public class VentanaTicket extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlTicket = new javax.swing.JPanel();
-        lnNumero = new javax.swing.JLabel();
+        lbNumero = new javax.swing.JLabel();
         lbIngreso = new javax.swing.JLabel();
         lbSalida = new javax.swing.JLabel();
         lbValor = new javax.swing.JLabel();
@@ -48,8 +136,8 @@ public class VentanaTicket extends javax.swing.JFrame {
 
         pnlTicket.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TICKET", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
 
-        lnNumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lnNumero.setText("Número:");
+        lbNumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbNumero.setText("Número:");
 
         lbIngreso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbIngreso.setText("Ingreso:");
@@ -83,7 +171,7 @@ public class VentanaTicket extends javax.swing.JFrame {
                     .addComponent(lbValor)
                     .addComponent(lbSalida)
                     .addComponent(lbIngreso)
-                    .addComponent(lnNumero))
+                    .addComponent(lbNumero))
                 .addGap(66, 66, 66)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtSalida, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
@@ -97,7 +185,7 @@ public class VentanaTicket extends javax.swing.JFrame {
             .addGroup(pnlTicketLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lnNumero)
+                    .addComponent(lbNumero)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -180,9 +268,9 @@ public class VentanaTicket extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbIngreso;
+    private javax.swing.JLabel lbNumero;
     private javax.swing.JLabel lbSalida;
     private javax.swing.JLabel lbValor;
-    private javax.swing.JLabel lnNumero;
     private javax.swing.JPanel pnlTicket;
     private javax.swing.JTextField txtIngreso;
     private javax.swing.JTextField txtNumero;

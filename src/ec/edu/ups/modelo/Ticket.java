@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -18,7 +19,9 @@ public class Ticket {
     private Date ingreso;
     private Date salida;
     private double total;
-
+    ArrayList codigo=new ArrayList<>();
+    
+    
     public Ticket(int numero, Date ingreso) {
         this.numero = numero;
         this.ingreso = ingreso;
@@ -82,6 +85,14 @@ public class Ticket {
         }
         return true;
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     public double obtenerTotal() {
         

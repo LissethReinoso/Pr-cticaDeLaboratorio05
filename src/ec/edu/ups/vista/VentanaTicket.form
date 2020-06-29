@@ -61,7 +61,7 @@
                       <Component id="lbValor" min="-2" max="-2" attributes="0"/>
                       <Component id="lbSalida" min="-2" max="-2" attributes="0"/>
                       <Component id="lbIngreso" min="-2" max="-2" attributes="0"/>
-                      <Component id="lnNumero" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbNumero" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -79,7 +79,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lnNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lnNumero">
+        <Component class="javax.swing.JLabel" name="lbNumero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>

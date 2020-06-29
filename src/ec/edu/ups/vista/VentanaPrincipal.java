@@ -22,6 +22,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     //Ventanas internas
     private VentanaCliente ventanaCliente;
+    private VentanaVehiculo ventanaVehiculo;
+     private VentanaTicket ventanaTicket;
     private VentanaListarTicket listarTicket;
     private VentanaSalidaDeVehiculo salidaDeVehiculo;
    //Controlador
@@ -37,6 +39,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         initComponents();
         ventanaCliente=new VentanaCliente();
+        ventanaVehiculo=new VentanaVehiculo();
+        ventanaTicket=new VentanaTicket();
         listarTicket=new VentanaListarTicket();
         salidaDeVehiculo=new VentanaSalidaDeVehiculo();
     }
@@ -44,12 +48,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void cambiarIdioma(){
         
         fileMenu.setText(mensajes.getString("fileMenu"));
-        IdiomaMenu.setText(mensajes.getString("IdiomaMenu"));
-        IngresarClienteMenuItem.setText(mensajes.getString("IngresarClienteMenuItem"));
-        TicketsMenuItem.setText(mensajes.getString("TicketsMenuItem"));
-        salirMenuItem.setText(mensajes.getString("saveAsMenuItem"));
-        espaniolMenuItem.setText(mensajes.getString("cutMenuItem"));
-        inglesMenuItem.setText(mensajes.getString("copyMenuItem"));
+        idiomaMenu.setText(mensajes.getString("idiomaMenu"));
+        IngresarClienteMenuItem.setText(mensajes.getString("ingresarClienteMenuItem"));
+        salidaMenuItem.setText(mensajes.getString("salidaMenuItems"));
+        ticketsMenuItem.setText(mensajes.getString("ticketsMenuItem"));
+        salirMenuItem.setText(mensajes.getString("salirMenuItem"));
+        espaniolMenuItem.setText(mensajes.getString("espaniolMenuItem"));
+        inglesMenuItem.setText(mensajes.getString("inglesMenuItem"));
         ventanaCliente.getLbCedula().setText(mensajes.getString("lbCedula"));
         ventanaCliente.getLbDireccion().setText(mensajes.getString("lbDireccion"));
         ventanaCliente.getLbNombre().setText(mensajes.getString("lbNombre"));
@@ -60,7 +65,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaCliente.getV().getLbMarca().setText(mensajes.getString("lbMarca"));
         ventanaCliente.getV().getLbModelo().setText(mensajes.getString("lbModelo"));
         ventanaCliente.getV().getLbPlaca().setText(mensajes.getString("lbPlaca"));
+        ventanaCliente.getV().getBtnIngresarTicket().setText(mensajes.getString("btnIngresarTicket"));
         ventanaCliente.getV().getPnlVehiculo().setBorder(javax.swing.BorderFactory.createTitledBorder(null, mensajes.getString("pnlVehiculo"), javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14)));
+        ventanaTicket.getLbNumero().setText(mensajes.getString("lbNumero"));
+        ventanaTicket.getLbIngreso().setText(mensajes.getString("lbIngreso"));
+        ventanaTicket.getLbSalida().setText(mensajes.getString("lbSalida"));
+        ventanaTicket.getLbValor().setText(mensajes.getString("lbValor"));
+        ventanaTicket.getT().getLbNumero().setText(mensajes.getString("lbNumero"));
+        ventanaTicket.getT().getLbIngreso().setText(mensajes.getString("lbIngreso"));
+        ventanaTicket.getT().getLbSalida().setText(mensajes.getString("lbSalida"));
+        ventanaTicket.getT().getLbValor().setText(mensajes.getString("lbValor"));
+        ventanaTicket.getPnlTicket().setBorder(javax.swing.BorderFactory.createTitledBorder(null, mensajes.getString("pnlTicket"),javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma",3,14 )));
+      
+        
         
     }
 
@@ -77,10 +94,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         IngresarClienteMenuItem = new javax.swing.JMenuItem();
-        SalidaMenuItem = new javax.swing.JMenuItem();
-        TicketsMenuItem = new javax.swing.JMenuItem();
+        salidaMenuItem = new javax.swing.JMenuItem();
+        ticketsMenuItem = new javax.swing.JMenuItem();
         salirMenuItem = new javax.swing.JMenuItem();
-        IdiomaMenu = new javax.swing.JMenu();
+        idiomaMenu = new javax.swing.JMenu();
         espaniolMenuItem = new javax.swing.JMenuItem();
         inglesMenuItem = new javax.swing.JMenuItem();
 
@@ -98,22 +115,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         fileMenu.add(IngresarClienteMenuItem);
 
-        SalidaMenuItem.setText("SalidaDelVehiculo");
-        SalidaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        salidaMenuItem.setText("SalidaDelVehiculo");
+        salidaMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalidaMenuItemActionPerformed(evt);
+                salidaMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(SalidaMenuItem);
+        fileMenu.add(salidaMenuItem);
 
-        TicketsMenuItem.setMnemonic('s');
-        TicketsMenuItem.setText("Tickets");
-        TicketsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        ticketsMenuItem.setMnemonic('s');
+        ticketsMenuItem.setText("Tickets");
+        ticketsMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TicketsMenuItemActionPerformed(evt);
+                ticketsMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(TicketsMenuItem);
+        fileMenu.add(ticketsMenuItem);
 
         salirMenuItem.setMnemonic('a');
         salirMenuItem.setText("Salir");
@@ -126,8 +143,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        IdiomaMenu.setMnemonic('e');
-        IdiomaMenu.setText("Idiomas");
+        idiomaMenu.setMnemonic('e');
+        idiomaMenu.setText("Idiomas");
 
         espaniolMenuItem.setMnemonic('t');
         espaniolMenuItem.setText("Español");
@@ -136,7 +153,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 espaniolMenuItemActionPerformed(evt);
             }
         });
-        IdiomaMenu.add(espaniolMenuItem);
+        idiomaMenu.add(espaniolMenuItem);
 
         inglesMenuItem.setMnemonic('y');
         inglesMenuItem.setText("Inglés");
@@ -145,9 +162,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 inglesMenuItemActionPerformed(evt);
             }
         });
-        IdiomaMenu.add(inglesMenuItem);
+        idiomaMenu.add(inglesMenuItem);
 
-        menuBar.add(IdiomaMenu);
+        menuBar.add(idiomaMenu);
 
         setJMenuBar(menuBar);
 
@@ -178,14 +195,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_IngresarClienteMenuItemActionPerformed
 
-    private void TicketsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicketsMenuItemActionPerformed
+    private void ticketsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsMenuItemActionPerformed
         // TODO add your handling code here:
         if(listarTicket.isVisible() == false){
          desktopPane.add(listarTicket);
          listarTicket.setVisible(true);
         }
         
-    }//GEN-LAST:event_TicketsMenuItemActionPerformed
+    }//GEN-LAST:event_ticketsMenuItemActionPerformed
 
     
     private void espaniolMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espaniolMenuItemActionPerformed
@@ -209,14 +226,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
          System.exit(0);
     }//GEN-LAST:event_salirMenuItemActionPerformed
 
-    private void SalidaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaMenuItemActionPerformed
+    private void salidaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salidaMenuItemActionPerformed
         // TODO add your handling code here:
         
         if(salidaDeVehiculo.isVisible() == false){
         desktopPane.add(salidaDeVehiculo);
         salidaDeVehiculo.setVisible(true);
         }
-    }//GEN-LAST:event_SalidaMenuItemActionPerformed
+    }//GEN-LAST:event_salidaMenuItemActionPerformed
     
     /**
      * @param args the command line arguments
@@ -254,16 +271,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu IdiomaMenu;
     private javax.swing.JMenuItem IngresarClienteMenuItem;
-    private javax.swing.JMenuItem SalidaMenuItem;
-    private javax.swing.JMenuItem TicketsMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem espaniolMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu idiomaMenu;
     private javax.swing.JMenuItem inglesMenuItem;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem salidaMenuItem;
     private javax.swing.JMenuItem salirMenuItem;
+    private javax.swing.JMenuItem ticketsMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

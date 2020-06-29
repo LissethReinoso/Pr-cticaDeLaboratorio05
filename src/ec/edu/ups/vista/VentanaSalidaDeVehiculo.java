@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.modelo.Ticket;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -17,6 +21,9 @@ public class VentanaSalidaDeVehiculo extends javax.swing.JInternalFrame {
     
     //Ventana
     private VentanaTicket t;
+    
+    //Internacionalizacion
+     private Locale localizacion;
     
     public VentanaSalidaDeVehiculo() {
         initComponents();
@@ -112,8 +119,18 @@ public class VentanaSalidaDeVehiculo extends javax.swing.JInternalFrame {
     private void btnObtenerTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerTicketActionPerformed
         // TODO add your handling code here:
         String numero= txtNumeroTicket.getText();
+        if ("".equals(numero)) {
+            if (localizacion.getLanguage().equals("es")) {
+            JOptionPane.showMessageDialog(this, "Llene la casilla");
+        } else {
+            JOptionPane.showMessageDialog(this, "Fill the box");
+        }
+           
         
-        
+        }else{
+            
+            
+        }
         
     }//GEN-LAST:event_btnObtenerTicketActionPerformed
 
