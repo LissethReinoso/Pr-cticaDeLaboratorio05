@@ -213,7 +213,7 @@ Ventana Salida De Vehiculo:
 
 Estudiante: Nicolás Orellana
 
-![Firma1](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Firma1](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/Oreo.png)
 
 
 Estudiante: Lisseth Reinoso
