@@ -5,6 +5,14 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.*;
+import ec.edu.ups.dao.*;
+import ec.edu.ups.modelo.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Usuario
@@ -12,16 +20,57 @@ package ec.edu.ups.vista;
 public class VentanaVehiculo extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaVehiculo
+     * Creates new form VentanVehiculo
      */
+    //controlador
+    private ControladorVehiculo cVehiculo;
     
-    //ventana
-    
-    private VentanaTicket t;
     public VentanaVehiculo() {
         initComponents();
+        cVehiculo=new ControladorVehiculo(this, new VehiculoDAO());
     }
 
+    public JButton getBtnIngresarTicket() {
+        return btnIngresarTicket;
+    }
+
+    public void setBtnIngresarTicket(JButton btnIngresarTicket) {
+        this.btnIngresarTicket = btnIngresarTicket;
+    }
+
+    public JLabel getLbMarca() {
+        return lbMarca;
+    }
+
+    public void setLbMarca(JLabel lbMarca) {
+        this.lbMarca = lbMarca;
+    }
+
+    public JLabel getLbModelo() {
+        return lbModelo;
+    }
+
+    public void setLbModelo(JLabel lbModelo) {
+        this.lbModelo = lbModelo;
+    }
+
+    public JLabel getLbPlaca() {
+        return lbPlaca;
+    }
+
+    public void setLbPlaca(JLabel lbPlaca) {
+        this.lbPlaca = lbPlaca;
+    }
+
+    public JPanel getPnlVehiculo() {
+        return pnlVehiculo;
+    }
+
+    public void setPnlVehiculo(JPanel pnlVehiculo) {
+        this.pnlVehiculo = pnlVehiculo;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,10 +81,10 @@ public class VentanaVehiculo extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlVehiculo = new javax.swing.JPanel();
-        lbPLaca = new javax.swing.JLabel();
+        lbPlaca = new javax.swing.JLabel();
         lbMarca = new javax.swing.JLabel();
         lbModelo = new javax.swing.JLabel();
-        txtPLaca = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         btnIngresarTicket = new javax.swing.JButton();
@@ -44,8 +93,8 @@ public class VentanaVehiculo extends javax.swing.JFrame {
 
         pnlVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "VEHICULO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
 
-        lbPLaca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbPLaca.setText("Placa:");
+        lbPlaca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbPlaca.setText("Placa:");
 
         lbMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbMarca.setText("Marca:");
@@ -53,8 +102,9 @@ public class VentanaVehiculo extends javax.swing.JFrame {
         lbModelo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbModelo.setText("Modelo:");
 
-        btnIngresarTicket.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnIngresarTicket.setText("IngresarTicket");
+        btnIngresarTicket.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnIngresarTicket.setText("Ingresar Ticket");
+        btnIngresarTicket.setToolTipText("");
         btnIngresarTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarTicketActionPerformed(evt);
@@ -66,40 +116,41 @@ public class VentanaVehiculo extends javax.swing.JFrame {
         pnlVehiculoLayout.setHorizontalGroup(
             pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlVehiculoLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbModelo)
-                    .addComponent(lbMarca)
-                    .addComponent(lbPLaca))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                    .addComponent(txtPLaca)
-                    .addComponent(txtModelo))
-                .addGap(76, 76, 76))
-            .addGroup(pnlVehiculoLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(btnIngresarTicket)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlVehiculoLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbModelo)
+                            .addComponent(lbMarca)
+                            .addComponent(lbPlaca))
+                        .addGap(98, 98, 98)
+                        .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(txtModelo)
+                            .addComponent(txtMarca)))
+                    .addGroup(pnlVehiculoLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(btnIngresarTicket)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         pnlVehiculoLayout.setVerticalGroup(
             pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlVehiculoLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(87, 87, 87)
                 .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbPLaca)
-                    .addComponent(txtPLaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                    .addComponent(lbPlaca)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
                 .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMarca)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                .addGap(75, 75, 75)
                 .addGroup(pnlVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbModelo)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
                 .addComponent(btnIngresarTicket)
-                .addGap(46, 46, 46))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,14 +158,14 @@ public class VentanaVehiculo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(26, 26, 26)
                 .addComponent(pnlVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addComponent(pnlVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -125,11 +176,23 @@ public class VentanaVehiculo extends javax.swing.JFrame {
     private void btnIngresarTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarTicketActionPerformed
         // TODO add your handling code here:
         
-        if(t==null){
-            t=new VentanaTicket();
-        }
-        t.setVisible(true);
+        String placa= txtPlaca.getText();
+        String marca= txtMarca.getText();
+        String  modelo= txtModelo.getText();
         
+        
+           if("".equals(placa)&& "".equals(marca)&& "".equals(modelo)){
+               JOptionPane.showMessageDialog(this, "Llene todas las casillas");
+           }else if("".equals(placa)|| "".equals(marca)&& "".equals(modelo)){
+               JOptionPane.showMessageDialog(this, "Llene las casillas");
+           }else{
+           Vehiculo v=new Vehiculo(placa,marca,modelo);
+           cVehiculo.registrar(v);
+           JOptionPane.showMessageDialog(this, "Se ha ingresado Correctamente");
+           txtPlaca.setText("");
+           txtMarca.setText(" ");
+           txtModelo.setText(" ");
+           }
         
         
     }//GEN-LAST:event_btnIngresarTicketActionPerformed
@@ -160,6 +223,7 @@ public class VentanaVehiculo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaVehiculo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -173,10 +237,10 @@ public class VentanaVehiculo extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresarTicket;
     private javax.swing.JLabel lbMarca;
     private javax.swing.JLabel lbModelo;
-    private javax.swing.JLabel lbPLaca;
+    private javax.swing.JLabel lbPlaca;
     private javax.swing.JPanel pnlVehiculo;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtPLaca;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }

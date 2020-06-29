@@ -7,7 +7,9 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.dao.*;
 import ec.edu.ups.modelo.*;
-import ec.edu.ups.vista.VentanaCliente;
+import ec.edu.ups.vista.*;
+import java.util.List;
+;
 
 /**
  *
@@ -25,11 +27,12 @@ public class ControladorVehiculo {
     private Ticket ticket;
     
     //vista
-     private VentanaCliente ingresov;
+     private VentanaVehiculo ingresov;
 
-    public ControladorVehiculo(VentanaCliente ingresov,IVehiculoDAO vehiculoDAO) {
-        this.vehiculoDAO = vehiculoDAO;
+    public ControladorVehiculo(VentanaVehiculo ingresov,IVehiculoDAO vehiculoDAO) {
         this.ingresov = ingresov;
+        this.vehiculoDAO = vehiculoDAO;
+       
     }
      
 
@@ -43,20 +46,18 @@ public class ControladorVehiculo {
         vehiculoDAO.create(vehiculo);
     }
 
-    public void verCliente(){
-
+    public void verVehiculo(String placa){
+            vehiculo =vehiculoDAO.read(placa);
     }
 
-    public void actualizar(){
-
-    }
 
     public void eliminar(){
-
+            
     }
 
     public void verClientes(){
-
+        List<Vehiculo> vehiculos;
+        vehiculos = vehiculoDAO.findAll();
     }
 
     public void agregarTicket(int numero){

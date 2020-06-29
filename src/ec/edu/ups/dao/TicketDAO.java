@@ -23,7 +23,6 @@ public class TicketDAO implements ITicketDAO {
         listaTicket = new ArrayList<>();
     }
     
-    
     @Override
     public void create(Ticket ticket) {
         listaTicket.add(ticket);

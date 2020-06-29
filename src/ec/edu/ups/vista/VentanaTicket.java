@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorTicket;
+import ec.edu.ups.dao.*;
+import ec.edu.ups.modelo.Ticket;
+
 /**
  *
  * @author Usuario
@@ -15,8 +19,10 @@ public class VentanaTicket extends javax.swing.JFrame {
      * Creates new form VentanaTicket
      */
     
+    private ControladorTicket cTicket;
     public VentanaTicket() {
         initComponents();
+        cTicket=new ControladorTicket(this,new VehiculoDAO());
     }
 
     /**
@@ -29,56 +35,83 @@ public class VentanaTicket extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlTicket = new javax.swing.JPanel();
-        lbNumero = new javax.swing.JLabel();
+        lnNumero = new javax.swing.JLabel();
         lbIngreso = new javax.swing.JLabel();
+        lbSalida = new javax.swing.JLabel();
+        lbValor = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
         txtIngreso = new javax.swing.JTextField();
+        txtSalida = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlTicket.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "TICKET", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
 
-        lbNumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNumero.setText("Número:");
+        lnNumero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lnNumero.setText("Número:");
 
         lbIngreso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbIngreso.setText("Ingreso:");
-        lbIngreso.setToolTipText("");
+
+        lbSalida.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbSalida.setText("Salida:");
+
+        lbValor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbValor.setText("Valor:");
 
         txtNumero.setEditable(false);
-        txtNumero.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txtIngreso.setEditable(false);
+
+        txtSalida.setEditable(false);
+
+        txtValor.setEditable(false);
+        txtValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTicketLayout = new javax.swing.GroupLayout(pnlTicket);
         pnlTicket.setLayout(pnlTicketLayout);
         pnlTicketLayout.setHorizontalGroup(
             pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTicketLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(60, 60, 60)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlTicketLayout.createSequentialGroup()
-                        .addComponent(lbIngreso)
-                        .addGap(103, 103, 103)
-                        .addComponent(txtIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-                    .addGroup(pnlTicketLayout.createSequentialGroup()
-                        .addComponent(lbNumero)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(75, 75, 75))
+                    .addComponent(lbValor)
+                    .addComponent(lbSalida)
+                    .addComponent(lbIngreso)
+                    .addComponent(lnNumero))
+                .addGap(66, 66, 66)
+                .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSalida, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(txtIngreso)
+                    .addComponent(txtNumero)
+                    .addComponent(txtValor))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         pnlTicketLayout.setVerticalGroup(
             pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTicketLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(48, 48, 48)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNumero)
+                    .addComponent(lnNumero)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbIngreso)
                     .addComponent(txtIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(52, 52, 52)
+                .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbSalida)
+                    .addComponent(txtSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(pnlTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbValor)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,20 +119,29 @@ public class VentanaTicket extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(pnlTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addComponent(pnlTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
+        // TODO add your handling code here:
+        
+        /*
+        Ticket t=new Ticket(numero,ingreso);
+        t.obtenerTotal();
+        */
+    }//GEN-LAST:event_txtValorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,9 +180,13 @@ public class VentanaTicket extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lbIngreso;
-    private javax.swing.JLabel lbNumero;
+    private javax.swing.JLabel lbSalida;
+    private javax.swing.JLabel lbValor;
+    private javax.swing.JLabel lnNumero;
     private javax.swing.JPanel pnlTicket;
     private javax.swing.JTextField txtIngreso;
     private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtSalida;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ package ec.edu.ups.controlador;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.modelo.*;
 import ec.edu.ups.vista.*;
+import java.util.List;
 /**
  *
  * @author Usuario
@@ -41,20 +42,17 @@ public class ControladorCliente {
     }
     
     //
-    public void verCliente(){
-        
+    public void verCliente(String cedula){
+        cliente=clienteDAO.read(cedula);
     }
     
-    public void actualizar(){
-        
-    }
+   
     
-    public void eliminar(){
-        
-    }
+    
     
     public void verClientes(){
-        
+        List<Cliente> clientes;
+        clientes = clienteDAO.findAll();
     }
     
     //

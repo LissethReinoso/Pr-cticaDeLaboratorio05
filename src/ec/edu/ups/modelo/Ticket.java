@@ -84,6 +84,7 @@ public class Ticket {
     }
     
     public double obtenerTotal() {
+        
         while (salida.getMinutes() != 0) {
             if(salida.getMinutes() - ingreso.getMinutes() > 9){
                 total += 0.25;

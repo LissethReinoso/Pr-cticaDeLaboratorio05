@@ -9,7 +9,8 @@ import ec.edu.ups.controlador.*;
 import ec.edu.ups.dao.ClienteDAO;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-
+import java.util.Locale;
+import java.util.ResourceBundle;
 /**
  *
  * @author Usuario
@@ -22,15 +23,44 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     //Ventanas internas
     private VentanaCliente ventanaCliente;
     private VentanaListarTicket listarTicket;
-   
+    private VentanaSalidaDeVehiculo salidaDeVehiculo;
    //Controlador
    private ControladorTicket cTicket;
+   
+    //Localization
+    //localizacion
+   private Locale localizacion;
+   
+   private ResourceBundle mensajes;
    
     public VentanaPrincipal() {
         
         initComponents();
         ventanaCliente=new VentanaCliente();
         listarTicket=new VentanaListarTicket();
+        salidaDeVehiculo=new VentanaSalidaDeVehiculo();
+    }
+    
+    public void cambiarIdioma(){
+        
+        fileMenu.setText(mensajes.getString("fileMenu"));
+        IdiomaMenu.setText(mensajes.getString("IdiomaMenu"));
+        IngresarClienteMenuItem.setText(mensajes.getString("IngresarClienteMenuItem"));
+        TicketsMenuItem.setText(mensajes.getString("TicketsMenuItem"));
+        salirMenuItem.setText(mensajes.getString("saveAsMenuItem"));
+        espaniolMenuItem.setText(mensajes.getString("cutMenuItem"));
+        inglesMenuItem.setText(mensajes.getString("copyMenuItem"));
+        ventanaCliente.getLbCedula().setText(mensajes.getString("lbCedula"));
+        ventanaCliente.getLbDireccion().setText(mensajes.getString("lbDireccion"));
+        ventanaCliente.getLbNombre().setText(mensajes.getString("lbNombre"));
+        ventanaCliente.getLbTelefono().setText(mensajes.getString("lbTelefono"));
+        ventanaCliente.getBtnCerrar().setText(mensajes.getString("btnCerrar"));
+        ventanaCliente.getBtnIngresarVehiculo().setText(mensajes.getString("btnIngresarVehiculo"));
+        ventanaCliente.getPnlCliente().setBorder(javax.swing.BorderFactory.createTitledBorder(null, mensajes.getString("pnlCliente"), javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14), new java.awt.Color(51, 0, 51)));
+        ventanaCliente.getV().getLbMarca().setText(mensajes.getString("lbMarca"));
+        ventanaCliente.getV().getLbModelo().setText(mensajes.getString("lbModelo"));
+        ventanaCliente.getV().getLbPlaca().setText(mensajes.getString("lbPlaca"));
+        ventanaCliente.getV().getPnlVehiculo().setBorder(javax.swing.BorderFactory.createTitledBorder(null, mensajes.getString("pnlVehiculo"), javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14)));
         
     }
 
@@ -47,11 +77,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         IngresarClienteMenuItem = new javax.swing.JMenuItem();
+        SalidaMenuItem = new javax.swing.JMenuItem();
         TicketsMenuItem = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
+        salirMenuItem = new javax.swing.JMenuItem();
         IdiomaMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
+        espaniolMenuItem = new javax.swing.JMenuItem();
+        inglesMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +98,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         fileMenu.add(IngresarClienteMenuItem);
 
+        SalidaMenuItem.setText("SalidaDelVehiculo");
+        SalidaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalidaMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(SalidaMenuItem);
+
         TicketsMenuItem.setMnemonic('s');
         TicketsMenuItem.setText("Tickets");
         TicketsMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -76,22 +115,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         fileMenu.add(TicketsMenuItem);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Salir");
-        fileMenu.add(saveAsMenuItem);
+        salirMenuItem.setMnemonic('a');
+        salirMenuItem.setText("Salir");
+        salirMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirMenuItemActionPerformed(evt);
+            }
+        });
+        fileMenu.add(salirMenuItem);
 
         menuBar.add(fileMenu);
 
         IdiomaMenu.setMnemonic('e');
         IdiomaMenu.setText("Idiomas");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Español");
-        IdiomaMenu.add(cutMenuItem);
+        espaniolMenuItem.setMnemonic('t');
+        espaniolMenuItem.setText("Español");
+        espaniolMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                espaniolMenuItemActionPerformed(evt);
+            }
+        });
+        IdiomaMenu.add(espaniolMenuItem);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Inglés");
-        IdiomaMenu.add(copyMenuItem);
+        inglesMenuItem.setMnemonic('y');
+        inglesMenuItem.setText("Inglés");
+        inglesMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inglesMenuItemActionPerformed(evt);
+            }
+        });
+        IdiomaMenu.add(inglesMenuItem);
 
         menuBar.add(IdiomaMenu);
 
@@ -117,18 +171,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void IngresarClienteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarClienteMenuItemActionPerformed
         // TODO add your handling code here:
+      if(ventanaCliente.isVisible() == false){
         desktopPane.add(ventanaCliente);
         ventanaCliente.setVisible(true);
+        }
         
     }//GEN-LAST:event_IngresarClienteMenuItemActionPerformed
 
     private void TicketsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicketsMenuItemActionPerformed
         // TODO add your handling code here:
+        if(listarTicket.isVisible() == false){
          desktopPane.add(listarTicket);
          listarTicket.setVisible(true);
+        }
         
     }//GEN-LAST:event_TicketsMenuItemActionPerformed
 
+    
+    private void espaniolMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_espaniolMenuItemActionPerformed
+        // TODO add your handling code here:
+        localizacion = new Locale("es", "EC");
+
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idioma.mensajes", localizacion);
+
+        cambiarIdioma();
+    }//GEN-LAST:event_espaniolMenuItemActionPerformed
+
+    private void inglesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesMenuItemActionPerformed
+        // TODO add your handling code here:
+        localizacion = new Locale("en", "UK");
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idioma.mensajes", localizacion);
+        cambiarIdioma();
+    }//GEN-LAST:event_inglesMenuItemActionPerformed
+
+    private void salirMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirMenuItemActionPerformed
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_salirMenuItemActionPerformed
+
+    private void SalidaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaMenuItemActionPerformed
+        // TODO add your handling code here:
+        
+        if(salidaDeVehiculo.isVisible() == false){
+        desktopPane.add(salidaDeVehiculo);
+        salidaDeVehiculo.setVisible(true);
+        }
+    }//GEN-LAST:event_SalidaMenuItemActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -167,13 +256,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu IdiomaMenu;
     private javax.swing.JMenuItem IngresarClienteMenuItem;
+    private javax.swing.JMenuItem SalidaMenuItem;
     private javax.swing.JMenuItem TicketsMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JDesktopPane desktopPane;
+    private javax.swing.JMenuItem espaniolMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenuItem inglesMenuItem;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem salirMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

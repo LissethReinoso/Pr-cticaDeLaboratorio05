@@ -6,8 +6,9 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.dao.*;
-import ec.edu.ups.dao.*;
+
 import ec.edu.ups.modelo.*;
+import ec.edu.ups.vista.VentanaTicket;
 import java.util.List;
 
 /**
@@ -17,32 +18,30 @@ import java.util.List;
 public class ControladorTicket {
     //DAO
     private ITicketDAO ticketDAO;
+    private IClienteDAO clienteDAO;
+    private IVehiculoDAO vehiculoDAO;
 
     //Modelo
     private Ticket ticket;
-    
+    private Cliente cliente;
+    private Vehiculo vehiculo;
+   
     //ventana
+    private VentanaTicket vTicket;
     
     
-    public ControladorTicket(TicketDAO ticketDAO) {
-        this.ticketDAO = ticketDAO;
+    public ControladorTicket(VentanaTicket vTicket, VehiculoDAO vehiculoDAO) {
+        this.vTicket = vTicket;
+        this.vehiculoDAO = vehiculoDAO;
     }
 
     public void registrar(Ticket ticket){
         this.ticket = ticket;
         ticketDAO.create(ticket);
     }
-
-    public void verCliente(){
-
-    }
-
-    public void actualizar(){
-
-    }
-
-    public void eliminar(){
-
+    
+    public void verTicket(int numero){
+            ticket =ticketDAO.read(numero);
     }
 
     public void verTickets(){
@@ -50,6 +49,14 @@ public class ControladorTicket {
         tickets = ticketDAO.findAll();
 
     }
+    
+     public void obtenerPago(){
+     
+         ticket.obtenerTotal();
+         
+         
+     }
+    
     
     
     

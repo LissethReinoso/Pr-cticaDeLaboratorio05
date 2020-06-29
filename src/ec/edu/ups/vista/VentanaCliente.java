@@ -8,7 +8,10 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.*;
 import ec.edu.ups.dao.*;
 import ec.edu.ups.modelo.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,16 +24,84 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
      */
     //controlador
     private ControladorCliente cCliente;
-    private ControladorVehiculo cVehiculo;
+   
     //ventana 
     private VentanaVehiculo v;
 
     public VentanaCliente() {
         initComponents();
+        v = new VentanaVehiculo();
         cCliente = new ControladorCliente(this, new ClienteDAO());
-        cVehiculo = new ControladorVehiculo(this, new VehiculoDAO());
+       
+
+      
+    }
+        
+    public VentanaVehiculo getV() {
+        return v;
     }
 
+    public void setV(VentanaVehiculo v) {
+        this.v = v;
+    }
+
+    public JButton getBtnCerrar() {
+        return btnCerrar;
+    }
+
+    public void setBtnCerrar(JButton btnCerrar) {
+        this.btnCerrar = btnCerrar;
+    }
+
+    public JButton getBtnIngresarVehiculo() {
+        return btnIngresarVehiculo;
+    }
+
+    public void setBtnIngresarVehiculo(JButton btnIngresarVehiculo) {
+        this.btnIngresarVehiculo = btnIngresarVehiculo;
+    }
+
+    public JLabel getLbCedula() {
+        return lbCedula;
+    }
+
+    public void setLbCedula(JLabel lbCedula) {
+        this.lbCedula = lbCedula;
+    }
+
+    public JLabel getLbDireccion() {
+        return lbDireccion;
+    }
+
+    public void setLbDireccion(JLabel lbDireccion) {
+        this.lbDireccion = lbDireccion;
+    }
+
+    public JLabel getLbNombre() {
+        return lbNombre;
+    }
+
+    public void setLbNombre(JLabel lbNombre) {
+        this.lbNombre = lbNombre;
+        
+    }
+
+    public JLabel getLbTelefono() {
+        return lbTelefono;
+    }
+
+    public void setLbTelefono(JLabel lbTelefono) {
+        this.lbTelefono = lbTelefono;
+    }
+
+    public JPanel getPnlCliente() {
+        return pnlCliente;
+    }
+
+    public void setPnlCliente(JPanel pnlCliente) {
+        this.pnlCliente = pnlCliente;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,8 +121,10 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
         btnIngresarVehiculo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
 
-        pnlCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "CLIENTE", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14), new java.awt.Color(51, 0, 51))); // NOI18N
+        pnlCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNombre.setText("Nombre:");
@@ -74,35 +147,54 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel1.setText("CLIENTE");
+
+        btnCerrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(0, 0, 102));
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
         pnlClienteLayout.setHorizontalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClienteLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNombre)
-                    .addComponent(lbCedula)
-                    .addComponent(lbTelefono)
-                    .addComponent(lbDireccion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtDireccion)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlClienteLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtTelefono))
+                        .addGap(92, 92, 92)
+                        .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombre)
+                            .addComponent(lbCedula)
+                            .addComponent(lbTelefono)
+                            .addComponent(lbDireccion)))
+                    .addGroup(pnlClienteLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(btnIngresarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClienteLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94))
-            .addGroup(pnlClienteLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(btnIngresarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCedula))
@@ -118,9 +210,11 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbTelefono)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(btnIngresarVehiculo)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIngresarVehiculo)
+                    .addComponent(btnCerrar))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,7 +231,7 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,9 +266,16 @@ public class VentanaCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnIngresarVehiculoActionPerformed
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+          this.setVisible(false);
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnIngresarVehiculo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbCedula;
     private javax.swing.JLabel lbDireccion;
     private javax.swing.JLabel lbNombre;
