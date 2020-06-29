@@ -13,76 +13,85 @@ Crear interfaces gráficas de usuario empleando técnicas de modelado de objetos
  Repositorio inicializado:
 
 
-![RepositorioGitHub](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![RepositorioGitHub](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/Repositorio2.PNG)
 
 
 Añadimos al Colaborador:
 
-![Colaborador](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Colaborador]()
 
 
 *Creamos un proyecto llamado: Práctica De Laboratorio 5.*
 
 
-![Proyecto](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Proyecto](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/practica3.PNG)
 
 
 *Con sus paquetes:*
 
 
-![Paquetes](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Paquetes](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/Paquetes4.PNG)
 
 
 *Creamos las respectivas clases dentro del paquete “Modelo”:*
 
 Clase “Cliente”:
 
-![ModeloCliente](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo1.PNG)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo2.PNG)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo3.PNG)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo4.PNG)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo5.PNG)
+![ModeloCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteModelo6.PNG)
 
 Clase “Vehículo”:
 
-![ModeloVehiculo](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![ModeloVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VehiculoModelo1.PNG)
+![ModeloVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VehiculoModelo2.PNG)
+![ModeloVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VehiculoModelo4.PNG)
+
 
 Clase “Ticket”:
 
-![ModeloTicket](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![ModeloTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/TicketModelo1.PNG)
+![ModeloTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/TicketModelo3.PNG)
+![ModeloTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/TicketModelo4.PNG)
 
 *Creamos las respectivas interfaces y sus implementaciones en el paquete “dao”:*
 
 
 Interface “IClienteDAO”:
 
-![IClienteDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![IClienteDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IDaoCliente.PNG)
 
 
 Interface “IVehiculoDAO”:
 
-![IVehiculoDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![IVehiculoDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IDAOVehiculo.PNG)
 
 
 Interface “ITicketDAO”:
 
-![ITicketDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![ITicketDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IDAOTicket.PNG)
 
 
 
 Clase Impl “ClienteDAO”:
 
-![ClienteDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![ClienteDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteDAO1.PNG)
+![ClienteDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ClienteDAO2.PNG)
 
 
 Clase impl “VehiculoDAO”:
 
-![VehiculoDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![VehiculoDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VehiculoDAO1.PNG)
+![VehiculoDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VehiculoDAO2.PNG)
 
 Clase impl “TicketDAO”:
 
 
-![TicketDAO](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![TicketDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/TicketDAO1.PNG)
+![TicketDAO](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/TicketDAO2.PNG)
 
 
 
@@ -90,19 +99,20 @@ Clase impl “TicketDAO”:
  
  Clase “ControladorCliente”:
 
-![ControladorCliente](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![ControladorCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorCliente1.PNG)
+![ControladorCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorCliente2.PNG)
 
 
 Clase “ControladorVehiculo”:
 
-![ControladorVehiculo](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![ControladorVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorVehiculo1.PNG)
+![ControladorVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorVehiculo2.PNG)
 
 
 Clase “Controlador Ticket”:
 
-![ControladorTicket](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![ControladorTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorTicket1.PNG)
+![ControladorTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/ControladorTicket2.PNG)
 
 
 
@@ -113,55 +123,59 @@ Clase “Controlador Ticket”:
 mensajes_en_EC:
 
 
-![EC](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![EC](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IdiomaEc1.PNG)
+![EC](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IdiomaEc2.PNG)
 
 
 mensajes_en_UK:
 
-![UK](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![UK](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IdiomaUk1.PNG)
+![UK](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/IdiomaUk2.PNG)
 
 
 *En el paquete “Vista creamos la interfaz gráfica”:*
 
 
-![paqueteInterfaz](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
 
 
 Ventana Principal:
 
-![VentanaPrincipal](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![VentanaPrincipal](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaPrincipal1.PNG)
+![VentanaPrincipal](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaPrincipal2.PNG)
+![VentanaPrincipal](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaPrincipal3.PNG)
+![VentanaPrincipal](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaPrincipal4.PNG)
+![VentanaPrincipal](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaPrincipal5.PNG)
 
 
 Ventana Cliente:
 
-![VentanaCliente](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![VentanaCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaCliente1.PNG)
+![VentanaCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaCliente2.PNG)
+![VentanaCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaCliente4.PNG)
+![VentanaCliente](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaCliente5.PNG)
 
 Ventana Vehículo:
 
-![VentanaVehiculo](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![VentanaVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaVehiculo1.PNG)
+![VentanaVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaVehiculo2.PNG)
+![VentanaVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaVehiculo3.PNG)
 
 
 Ventana Ticket:
 
-![VentanaTicket](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
-
+![VentanaTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaTicket1.PNG)
+![VentanaTicket](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaTicket2.PNG)
 
 
 Ventana Salida De Vehiculo:
 
-![VentanaSalidaDeVehiculo](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![VentanaSalidaDeVehiculo](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/VentanaSalida1.PNG)
 
 
   *COMMITS ENTRE COLABORADORES:*
 
 
-![Commits](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Commits](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/Commits1.PNG)
 
 
 
@@ -204,7 +218,7 @@ Estudiante: Nicolás Orellana
 
 Estudiante: Lisseth Reinoso
 
-![Firma2](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![Firma2](https://github.com/LissethReinoso/Pr-cticaDeLaboratorio05/blob/master/img114.jpg)
 
 
 
